@@ -61,16 +61,15 @@ class _DogMapScreenState extends State<DogMapScreen> {
 
                   /// Filter Button (Center)
                   Container(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 10,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 10,
-                        )
+                        BoxShadow(color: Colors.black12, blurRadius: 10),
                       ],
                     ),
                     child: Row(
@@ -80,7 +79,9 @@ class _DogMapScreenState extends State<DogMapScreen> {
                         Text(
                           "Filter",
                           style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 14),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
                         ),
                       ],
                     ),
@@ -111,9 +112,10 @@ class _DogMapScreenState extends State<DogMapScreen> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: const Color(0xffE48325),
-                    border: isSelected
-                        ? Border.all(color: Colors.white, width: 3)
-                        : null,
+                    border:
+                        isSelected
+                            ? Border.all(color: Colors.white, width: 3)
+                            : null,
                   ),
                   child: ClipOval(
                     child: Image.asset(
@@ -130,12 +132,14 @@ class _DogMapScreenState extends State<DogMapScreen> {
 
           /// 🔹 Bottom Info Card
           if (selectedDogIndex != null)
-          /// 🔹 Bottom Info Card (POSITIONED JUST BELOW SELECTED DOG)
+            /// 🔹 Bottom Info Card (POSITIONED JUST BELOW SELECTED DOG)
             if (selectedDogIndex != null)
               Positioned(
                 left: 0,
                 right: 0,
-                top: dogs[selectedDogIndex!].position.dy + 72, // dog height + gap
+                top:
+                    dogs[selectedDogIndex!].position.dy +
+                    72, // dog height + gap
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     final selectedDog = dogs[selectedDogIndex!];
@@ -160,10 +164,10 @@ class _DogMapScreenState extends State<DogMapScreen> {
 
                         /// 🟨 Info Card
                         Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 16),
+                          margin: const EdgeInsets.symmetric(horizontal: 19),
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.white.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(16),
                             boxShadow: const [
                               BoxShadow(
@@ -186,7 +190,7 @@ class _DogMapScreenState extends State<DogMapScreen> {
                                         Text(
                                           selectedDog.name,
                                           style: const TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 21,
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
@@ -218,8 +222,8 @@ class _DogMapScreenState extends State<DogMapScreen> {
                                         Text(
                                           selectedDog.distance,
                                           style: const TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.grey,
+                                            fontSize: 16,
+                                            color: Color(0xff5F5F63),
                                           ),
                                         ),
                                       ],
@@ -230,9 +234,9 @@ class _DogMapScreenState extends State<DogMapScreen> {
 
                               /// ❤️ Heart Icon
                               const Icon(
-                                Icons.favorite_border,
+                                Icons.favorite_border_rounded,
                                 size: 24,
-                                color: Colors.grey,
+                                color: Color(0xff5F5F63),
                               ),
                             ],
                           ),
@@ -241,14 +245,12 @@ class _DogMapScreenState extends State<DogMapScreen> {
                     );
                   },
                 ),
-              )
-
+              ),
         ],
       ),
     );
   }
 }
-
 
 class DogModel {
   final String name;
@@ -274,9 +276,10 @@ class TrianglePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.fill;
+    final paint =
+        Paint()
+          ..color = Colors.white
+          ..style = PaintingStyle.fill;
 
     final path = Path();
     if (pointsUp) {
@@ -296,5 +299,6 @@ class TrianglePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(TrianglePainter oldDelegate) => oldDelegate.pointsUp != pointsUp;
+  bool shouldRepaint(TrianglePainter oldDelegate) =>
+      oldDelegate.pointsUp != pointsUp;
 }

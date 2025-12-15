@@ -48,7 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             left: 0,
             right: 0,
             child: Container(
-              height: 65,
+              height: 75,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: const BorderRadius.only(
@@ -83,7 +83,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
           /// Floating Center Button (WON'T BE CUT)
           Positioned(
-            top: -20.h, // pops out properly!
+            top: -30.h, // pops out properly!
             child: GestureDetector(
               onTap: () => setState(() => _index = 2),
               child: Transform.rotate(
@@ -105,7 +105,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   child: Transform.rotate(
                     angle: math.pi / 4,
-                    child: const Icon(Icons.add, color: Colors.white, size: 36),
+                    child: const Icon(
+                      Icons.add_circle_outline,
+                      color: Colors.white,
+                      size: 32,
+                    ),
                   ),
                 ),
               ),
